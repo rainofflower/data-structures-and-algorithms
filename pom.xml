@@ -7,7 +7,8 @@
 		<module>sort-algorithm</module>
 		<module>search-algorithm</module>
 		<module>common</module>
-	</modules>
+        <module>data-structures</module>
+    </modules>
 
 	<parent>
 		<groupId>org.springframework.boot</groupId>
