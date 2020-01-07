@@ -8,6 +8,9 @@
 		<module>search-algorithm</module>
 		<module>common</module>
         <module>data-structures</module>
+		<module>recursion</module>
+        <module>leetcode</module>
+        <module>string-matching</module>
     </modules>
 
 	<parent>
