@@ -9,6 +9,7 @@ import java.math.BigDecimal;
  * java 精度处理问题
  *
  * java中浮点数采用的IEEE754标准
+ * 参考：https://www.jianshu.com/p/1d6ba0047a5b
  *
  * @author YangHui
  */
