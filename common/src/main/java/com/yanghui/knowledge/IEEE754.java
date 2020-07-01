@@ -1,5 +1,6 @@
 package com.yanghui.knowledge;
 
+import org.junit.Assert;
 import org.junit.Test;
 
 import java.math.BigDecimal;
@@ -30,6 +31,16 @@ public class IEEE754 {
         float r5 = 2.11f - 0.11f;
         //预期2，实际1.9999999999999998
         double r6 = 2.11d - 0.11d;
+        int i3 = (int)r3;
+        int i4 = (int)r4;
+        int i5 = (int)r5;
+        int i6 = (int)r6;
+        System.out.println("i3=" + i3 +
+                "|i4=" + i4 + "|i5=" + i5 + "|i6=" +i6);
+        //以下三个assert都通过，浮点型强转整型，会直接舍弃掉小数位
+        Assert.assertEquals(i3,i4);
+        Assert.assertEquals(i5,i6);
+        Assert.assertEquals(i3,i5);
         //1.9
         double r7 = 2.0d - 0.1d;
         //预期1.9，实际1.8999999
