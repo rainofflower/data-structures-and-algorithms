@@ -9,6 +9,8 @@ import java.util.Stack;
 /**
  * 树的建立与遍历
  *
+ *
+ *
  * @author YangHui
  */
 public class BTreeBuildAndTraversal {
@@ -27,8 +29,33 @@ public class BTreeBuildAndTraversal {
         n1.rTree = n3;
         root.rTree = n2;
         n2.lTree = n4;
-//        preOrderTraversal(root);
+        /**
+         *         A
+         *       /    \
+         *      B      C
+         *       \    /
+         *        D  E
+         *
+         */
+        System.out.println("前序：");
+        preOrderTraversal(root);
+        System.out.println();
+        System.out.println("中序:");
         inOrderTraversal(root);
+        System.out.println();
+        System.out.println("后序");
+        postOrderTraversal(root);
+        System.out.println();
+        System.out.println("层序");
+        layerTraversal(root);
+        System.out.println();
+        System.out.println("广度优先");
+        breadthFirst(root);
+        System.out.println();
+        System.out.println("深度优先");
+        depthFirst(root);
+        System.out.println();
+
     }
 
     @Test
@@ -36,15 +63,16 @@ public class BTreeBuildAndTraversal {
         String[] preOrder = {"A","B","D","C","E"};
         String[] inOrder = {"B","D","A","E","C"};
         String[] postOrder = {"D","B","E","C","A"};
-//        BinaryTreeNode<String> root = buildTree1(preOrder, inOrder);
+        BinaryTreeNode<String> root = buildTree1(preOrder, inOrder);
 //        postOrderTraversal(root);
 //        preOrderTraversal(root);
-        BinaryTreeNode<String> root2 = buildTree2(postOrder, inOrder);
+        layerTraversal(root);
+//        BinaryTreeNode<String> root2 = buildTree2(postOrder, inOrder);
 //        preOrderTraversal(root2);
 //        layerTraversal(root2);
 //        depthFirst(root2);
 //        depthFirstNoneRec(root2);
-        inOrderTraversalNoneRec(root2);
+//        inOrderTraversalNoneRec(root2);
     }
 
     /**
@@ -123,6 +151,7 @@ public class BTreeBuildAndTraversal {
 
     /**
      * 前序遍历树
+     * 顺序：根左右
      */
     public static <T> void preOrderTraversal(BinaryTreeNode<T> tree){
         System.out.print(tree.value+" ");
@@ -138,6 +167,7 @@ public class BTreeBuildAndTraversal {
 
     /**
      * 中序遍历树
+     * 顺序：左根右
      */
     public static <T> void inOrderTraversal(BinaryTreeNode<T> tree){
         if(tree.lTree != null){
@@ -174,6 +204,7 @@ public class BTreeBuildAndTraversal {
 
     /**
      * 后序遍历树
+     * 顺序：左右根
      */
     public static <T> void postOrderTraversal(BinaryTreeNode<T> tree){
         if(tree.lTree != null){
@@ -189,6 +220,7 @@ public class BTreeBuildAndTraversal {
 
     /**
      * 层序遍历
+     * 从顶层往底层、从左向右遍历
      * 使用队列-先进先出
      * 一个节点的孩子一块进去，然后依次出来
      * @param tree
@@ -213,6 +245,7 @@ public class BTreeBuildAndTraversal {
 
     /**
      * 深度优先（其实就是先序遍历） - 递归实现
+     * 深度：探到最深处后再折回。一棵树一个分支遍历到底部再回溯
      * @param tree
      */
     public static <T> void depthFirst(BinaryTreeNode<T> tree){
@@ -242,6 +275,7 @@ public class BTreeBuildAndTraversal {
 
     /**
      * 广度优先 - 层序遍历
+     * 广度：遍历完一层后再往下遍历（水平面铺开，推广）
      * @param tree
      */
     public static <T> void breadthFirst(BinaryTreeNode<T> tree){
