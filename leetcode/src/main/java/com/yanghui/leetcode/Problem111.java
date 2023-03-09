@@ -1,5 +1,6 @@
 package com.yanghui.leetcode;
 
+import com.yanghui.leetcode.util.PrintUtils;
 import org.junit.Test;
 
 import java.util.Iterator;
@@ -40,6 +41,11 @@ public class Problem111 {
         public int getVal() {
             return val;
         }
+
+        @Override
+        public String toString() {
+            return String.valueOf(this.getVal());
+        }
     }
 
     public int minDepth(TreeNode root) {
@@ -49,7 +55,7 @@ public class Problem111 {
         queue.offer(root);
         while(!queue.isEmpty()){
             System.out.println("===="+depth+"=====");
-            System.out.println(toString(queue));
+            System.out.println(PrintUtils.toString(queue));
             int size = queue.size();
             for(int i=0; i<size; i++){
                 TreeNode curr = queue.poll();
@@ -66,22 +72,6 @@ public class Problem111 {
             depth++;
         }
         return depth;
-    }
-
-    public String toString(Queue<TreeNode> queue) {
-        Iterator<TreeNode> it = queue.iterator();
-        if (! it.hasNext())
-            return "[]";
-
-        StringBuilder sb = new StringBuilder();
-        sb.append('[');
-        for (;;) {
-            TreeNode e = it.next();
-            sb.append(e.getVal());
-            if (! it.hasNext())
-                return sb.append(']').toString();
-            sb.append(',').append(' ');
-        }
     }
 
 }
