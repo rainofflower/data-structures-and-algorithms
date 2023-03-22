@@ -20,4 +20,16 @@ public class PrintUtils {
             sb.append(',').append(' ');
         }
     }
+
+    public static <E> void print(Collection<E> collection) {
+        System.out.println(toString(collection));
+    }
+
+    public static void printIntArray(int[] a){
+        int length = a.length;
+        for(int i = 0; i<length; ++i){
+            System.out.print(a[i]+" ");
+        }
+        System.out.println();
+    }
 }
